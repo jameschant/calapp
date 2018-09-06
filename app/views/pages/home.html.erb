@@ -2,18 +2,27 @@
   <h1>Calapp</h1>
   <h3>Link your Google Calendar and weep at the time you spend in meetings</h3>
 </div>
+<div>
+  <div class="container">
+    <div class="row text-center">
+      <%= link_to "Authorise your Calendar", redirect_path, class: "button btn btn-primary" %>
+    </div>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-md-6 ">
       <div class="well">
         <h2 class="text-center">Time in Meetings</h2>
-          <p>Test</p>
+          <p>0</p>
       </div>
     </div>
     <div class="col-md-6">
       <div class="well">
         <h2 class="text-center">Context Switching</h2>
-          <%= link_to "Click here", redirect_path, class: "button" %>
+        <ul>
+            <%= link_to "See Calendar list", seecalendars_path, class: "button btn btn-primary" %>
+        </ul>
       </div>
     </div>
 </div>
