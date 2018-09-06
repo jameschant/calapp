@@ -39,6 +39,9 @@ gem 'bootstrap-sass', '~> 3.3.7'
 # jQuery needed for Bootstrap JavaScript
 gem 'jquery-rails'
 
+# Google Calendar support
+gem 'google-api-client', require: 'google/apis/calendar_v3'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
