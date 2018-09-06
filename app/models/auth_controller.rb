@@ -25,7 +25,7 @@ class AuthController < ApplicationController
 
     @calendar_list = service.list_calendar_lists
 
-    redirect_to see_calendars
+    redirect_to seecalendars_url
   rescue Google::Apis::AuthorizationError
     response = client.refresh!
 
