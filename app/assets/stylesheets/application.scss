@@ -1,2 +1,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.well {
+  background-color: white;
+  border: white;
+  box-shadow: none;
+}
+
+.btn-primary {
+  background-color: #49c9e6;
+  border: none;
+  margin: 10px;
+}

@@ -1,4 +1,4 @@
-<%= link_to "See events", events_path(:calendar_id => @user.email), class: "button btn btn-primary" %>
+<%= link_to "See events", events_path(:calendar_id), class: "button btn btn-primary" %>
 <% if (defined?($events.items)) %>
   <ul>
     <% $events.items.each do |event| %>
