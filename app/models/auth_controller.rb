@@ -21,13 +21,23 @@ class AuthController < ApplicationController
     service = Google::Apis::CalendarV3::CalendarService.new
     service.authorization = client
     @calendar_list = service.list_calendar_lists
-    render "pages/seecalendars"
+    $calendars = @calendar_list
+    redirect_to '/'
   rescue Google::Apis::AuthorizationError
     response = client.refresh!
     session[:authorization] = session[:authorization].merge(response)
     retry
   end
 
+  def events
+      client = Signet::OAuth2::Client.new(client_options)
+      client.update!(session[:authorization])
+
+      service = Google::Apis::CalendarV3::CalendarService.new
+      service.authorization = client
+
+      @event_list = service.list_events(params[:calendar_id])
+  end
 
   private
 

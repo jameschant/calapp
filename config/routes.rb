@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/oauth2callback', to: 'auth#callback', as: 'callback'
   get '/calendars', to: 'auth#calendars', as: 'calendars'
   get '/seecalendars', to: 'pages#seecalendars'
+  get '/events/:calendar_id', to: 'example#events', as: 'events', calendar_id: /[^\/]+/
 end
