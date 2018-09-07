@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/redirect', to: 'auth#redirect', as: 'redirect'
   get '/oauth2callback', to: 'auth#callback', as: 'callback'
   get '/calendars', to: 'auth#calendars', as: 'calendars'
+  get '/seecalendars', to: 'pages#seecalendars'
 end

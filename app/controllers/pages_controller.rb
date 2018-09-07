@@ -1,9 +1,7 @@
 class PagesController < ApplicationController
   # GET request for / (homepage)
   def home
-  end
-
-  def seecalendars
+    @calendar_list
   end
 
 end
