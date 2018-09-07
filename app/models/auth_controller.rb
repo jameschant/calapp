@@ -1,38 +1,32 @@
 class AuthController < ApplicationController
+
   def redirect
     client = Signet::OAuth2::Client.new(client_options)
-
     redirect_to client.authorization_uri.to_s
   end
+
 
   def callback
     client = Signet::OAuth2::Client.new(client_options)
     client.code = params[:code]
-
     response = client.fetch_access_token!
-
     session[:authorization] = response
-
-    redirect_to '/'
+    redirect_to calendars_url
   end
+
 
   def calendars
     client = Signet::OAuth2::Client.new(client_options)
     client.update!(session[:authorization])
-
     service = Google::Apis::CalendarV3::CalendarService.new
     service.authorization = client
-
     @calendar_list = service.list_calendar_lists
-
-    redirect_to seecalendars_url
   rescue Google::Apis::AuthorizationError
     response = client.refresh!
-
     session[:authorization] = session[:authorization].merge(response)
-
     retry
   end
+
 
   private
 
