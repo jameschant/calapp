@@ -37,6 +37,8 @@ class AuthController < ApplicationController
       service.authorization = client
 
       @event_list = service.list_events(params[:calendar_id])
+      $events = @event_list
+      redirect_to '/'
   end
 
   private

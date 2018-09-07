@@ -13,21 +13,29 @@
   <div class="row">
     <div class="col-md-6 ">
       <div class="well">
-        <h2 class="text-center">Time in Meetings</h2>
-          <p>0</p>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="well">
-        <h2 class="text-center">Context Switching</h2>
+        <h2 class="text-center">List of Calendars</h2>
         <ul>
             <%= link_to "See calendar list", calendars_path, class: "button btn btn-primary" %>
             <% if (defined?($calendars.items)) %>
               <ul>
               <% $calendars.items.each do |calendar| %>
                 <li><%= calendar.summary %> (<%= calendar.id %>)</li>
-              </ul>
               <% end %>
+              </ul>
+            <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="well">
+        <h2 class="text-center">List of Events</h2>
+        <ul>
+            <p>Enter your email</p>
+
+            <%= render "form" %>
+
+            <% if (defined?(@user.email)) %>
+              <%= render "event_form" %>
             <% end %>
         </ul>
       </div>
